@@ -1,50 +1,30 @@
-[
-  {
-    "title": "UN Human Rights Report 2023",
-    "description": "Official report documenting human rights violations in Iran.",
-    "type": "document",
-    "category": "reports",
-    "file": "documents/reports/un-human-rights-report-2023.pdf",
-    "thumbnail": "thumbnails/doc1.jpg"
-  },
-  {
-    "title": "Testimony from victim's family",
-    "description": "Written testimony describing arrest, pressure, and intimidation by authorities.",
-    "type": "document",
-    "category": "testimonies",
-    "file": "documents/testimonies/family-testimony-01.pdf",
-    "thumbnail": "thumbnails/doc2.jpg"
-  },
-  {
-    "title": "Tehran protest footage",
-    "description": "Video showing street protests and crowd reactions in Tehran.",
-    "type": "video",
-    "category": "protests",
-    "file": "videos/protests/tehran-protest-01.mp4",
-    "thumbnail": "thumbnails/vid1.jpg"
-  },
-  {
-    "title": "Security force repression footage",
-    "description": "Video documenting violent suppression of civilians during protests.",
-    "type": "video",
-    "category": "repression",
-    "file": "videos/repression/repression-01.mp4",
-    "thumbnail": "thumbnails/vid2.jpg"
-  },
-  {
-    "title": "Demonstration crowd image",
-    "description": "Photo documenting a public demonstration and protest messages.",
-    "type": "image",
-    "category": "protests",
-    "file": "images/protests/demo-01.jpg",
-    "thumbnail": "images/protests/demo-01.jpg"
-  },
-  {
-    "title": "Evidence image from incident",
-    "description": "Photographic evidence showing the aftermath of government action.",
-    "type": "image",
-    "category": "evidence",
-    "file": "images/evidence/evidence-01.jpg",
-    "thumbnail": "images/evidence/evidence-01.jpg"
-  }
-]
+{
+  "items": [
+    {
+      "title": "UN Human Rights Report 2023",
+      "description": "Official report documenting human rights violations in Iran.",
+      "type": "document",
+      "category": "reports",
+      "file": "uploads/un-human-rights-report-2023.pdf",
+      "thumbnail": "uploads/un-report-thumb.jpg"
+    },
+
+    {
+      "title": "Tehran protest footage",
+      "description": "Video showing demonstrations and public resistance in Tehran.",
+      "type": "video",
+      "category": "protests",
+      "file": "uploads/tehran-protest-01.mp4",
+      "thumbnail": "uploads/tehran-protest-01.jpg"
+    },
+
+    {
+      "title": "Demonstration photo evidence",
+      "description": "Photo documenting protest activity and public participation.",
+      "type": "image",
+      "category": "protests",
+      "file": "uploads/demo-photo-01.jpg",
+      "thumbnail": "uploads/demo-photo-01.jpg"
+    }
+  ]
+}
