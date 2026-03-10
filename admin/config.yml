@@ -3,56 +3,61 @@ backend:
   repo: LionSunRevolution2026/FreeIran-Sources
   branch: main
 
-media_folder: ""
-public_folder: ""
+media_folder: "uploads"
+public_folder: "/uploads"
 
 collections:
-
   - name: "resources"
     label: "Resources"
-    folder: "data"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    format: "json"
+    files:
+      - label: "Resource Library"
+        name: "resource_library"
+        file: "resources.json"
+        fields:
 
-    fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
 
-      - label: "Title"
-        name: "title"
-        widget: "string"
+            fields:
 
-      - label: "Description"
-        name: "description"
-        widget: "text"
+              - label: "Title"
+                name: "title"
+                widget: "string"
 
-      - label: "Type"
-        name: "type"
-        widget: "select"
-        options:
-          - document
-          - video
-          - image
+              - label: "Description"
+                name: "description"
+                widget: "text"
 
-      - label: "Category"
-        name: "category"
-        widget: "select"
-        options:
-          - reports
-          - testimonies
-          - legal
-          - protests
-          - repression
-          - speeches
-          - victims
-          - evidence
-          - statistics
-          - timelines
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options:
+                  - document
+                  - video
+                  - image
 
-      - label: "Upload File"
-        name: "file"
-        widget: "file"
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - reports
+                  - testimonies
+                  - legal
+                  - protests
+                  - repression
+                  - speeches
+                  - victims
+                  - evidence
+                  - statistics
+                  - timelines
 
-      - label: "Thumbnail"
-        name: "thumbnail"
-        widget: "image"
-        required: false
+              - label: "File"
+                name: "file"
+                widget: "file"
+
+              - label: "Thumbnail"
+                name: "thumbnail"
+                widget: "image"
+                required: false
