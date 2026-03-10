@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FreeIran Sources</title>
+
+  <style>
+    :root{
+      --bg0:#07131c;
+      --bg1:#0b1d2a;
+      --bg2:#061018;
+      --card0:#0d2230;
+      --card1:#0a1b27;
+      --text:#e8f2ff;
+      --muted:rgba(232,242,255,.75);
+      --border:rgba(255,255,255,.10);
+      --accent:#c9a96b;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(47,192,214,.10), transparent 55%),
+        radial-gradient(900px 600px at 85% 0%, rgba(60,120,255,.10), transparent 50%),
+        linear-gradient(180deg,var(--bg1),var(--bg0) 55%,var(--bg2));
+      min-height:100vh;
+    }
+
+    .wrap{
+      max-width:1200px;
+      margin:0 auto;
+      padding:32px 18px 60px;
+    }
+
+    .hero{
+      text-align:center;
+      margin-bottom:28px;
+    }
+
+    .hero h1{
+      margin:0 0 10px;
+      font-size:42px;
+    }
+
+    .hero p{
+      margin:0 auto;
+      max-width:850px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .toolbar{
+      display:grid;
+      grid-template-columns: 1.4fr .8fr .8fr;
+      gap:12px;
+      margin:26px 0 22px;
+    }
+
+    .input, .select{
+      width:100%;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      outline:none;
+    }
+
+    .select option{
+      color:#111;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:18px;
+    }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:22px;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        linear-gradient(180deg, var(--card0), var(--card1));
+      box-shadow:0 20px 50px rgba(0,0,0,.38);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .thumbWrap{
+      height:190px;
+      background:rgba(255,255,255,.04);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border-bottom:1px solid var(--border);
+    }
+
+    .thumbWrap img,
+    .thumbWrap video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .docIcon{
+      font-size:64px;
+      opacity:.9;
+    }
+
+    .content{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1;
+    }
+
+    .meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:700;
+      text-transform:capitalize;
+    }
+
+    .title{
+      margin:0;
+      font-size:21px;
+      line-height:1.3;
+    }
+
+    .desc{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      flex:1;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:4px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      text-decoration:none;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      border-color:rgba(201,169,107,.55);
+    }
+
+    .empty{
+      text-align:center;
+      color:var(--muted);
+      padding:40px 20px;
+      border:1px dashed var(--border);
+      border-radius:18px;
+    }
+
+    dialog{
+      width:min(1000px,96vw);
+      border:none;
+      border-radius:22px;
+      padding:0;
+      background:#081521;
+      color:var(--text);
+    }
+
+    dialog::backdrop{
+      background:rgba(0,0,0,.65);
+    }
+
+    .modalHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:16px 18px;
+      border-bottom:1px solid var(--border);
+    }
+
+    .modalTitle{
+      margin:0;
+      font-size:22px;
+    }
+
+    .closeBtn{
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      color:#fff;
+      border-radius:12px;
+      padding:8px 12px;
+      cursor:pointer;
+      font-weight:800;
+    }
+
+    .modalBody{
+      padding:16px 18px 20px;
+    }
+
+    .modalDesc{
+      color:var(--muted);
+      line-height:1.8;
+      margin:0 0 14px;
+    }
+
+    .viewer{
+      width:100%;
+      min-height:520px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:#031018;
+    }
+
+    .viewer img,
+    .viewer video,
+    .viewer iframe{
+      width:100%;
+      min-height:520px;
+      border:none;
+      border-radius:16px;
+      display:block;
+      background:#031018;
+    }
+
+    @media (max-width:800px){
+      .toolbar{
+        grid-template-columns:1fr;
+      }
+      .hero h1{
+        font-size:34px;
+      }
+      .viewer,
+      .viewer img,
+      .viewer video,
+      .viewer iframe{
+        min-height:300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>FreeIran Sources</h1>
+      <p>
+        A public evidence library documenting the situation in Iran through
+        reports, testimonies, videos, and images. Each item includes a clear
+        description so visitors can understand what it is before opening it.
+      </p>
+    </section>
+
+    <section class="toolbar">
+      <input id="searchInput" class="input" type="text" placeholder="Search title or description..." />
+      <select id="typeFilter" class="select">
+        <option value="all">All types</option>
+        <option value="document">Documents</option>
+        <option value="video">Videos</option>
+        <option value="image">Images</option>
+      </select>
+      <select id="categoryFilter" class="select">
+        <option value="all">All categories</option>
+      </select>
+    </section>
+
+    <section id="grid" class="grid"></section>
+  </div>
+
+  <dialog id="previewModal">
+    <div class="modalHead">
+      <h2 id="modalTitle" class="modalTitle"></h2>
+      <button id="closeModal" class="closeBtn" type="button">Close</button>
+    </div>
+    <div class="modalBody">
+      <p id="modalDesc" class="modalDesc"></p>
+      <div id="viewer" class="viewer"></div>
+      <div class="actions" style="margin-top:14px;">
+        <a id="openFileLink" class="btn" target="_blank" rel="noopener">Open file in new tab</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    let resources = [];
+
+    const grid = document.getElementById("grid");
+    const searchInput = document.getElementById("searchInput");
+    const typeFilter = document.getElementById("typeFilter");
+    const categoryFilter = document.getElementById("categoryFilter");
+
+    const previewModal = document.getElementById("previewModal");
+    const closeModal = document.getElementById("closeModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const viewer = document.getElementById("viewer");
+    const openFileLink = document.getElementById("openFileLink");
+
+    async function loadResources(){
+      try{
+        const res = await fetch("resources.json", { cache: "no-store" });
+        if(!res.ok) throw new Error("resources.json not found");
+        resources = await res.json();
+
+        populateCategories(resources);
+        renderCards();
+      }catch(err){
+        grid.innerHTML = `<div class="empty">Could not load resources.json</div>`;
+        console.error(err);
+      }
+    }
+
+    function populateCategories(items){
+      const categories = [...new Set(items.map(i => i.category).filter(Boolean))].sort();
+      for(const cat of categories){
+        const option = document.createElement("option");
+        option.value = cat;
+        option.textContent = capitalize(cat);
+        categoryFilter.appendChild(option);
+      }
+    }
+
+    function capitalize(text){
+      return (text || "").charAt(0).toUpperCase() + (text || "").slice(1);
+    }
+
+    function getFilteredItems(){
+      const q = searchInput.value.trim().toLowerCase();
+      const type = typeFilter.value;
+      const category = categoryFilter.value;
+
+      return resources.filter(item => {
+        const matchesSearch =
+          !q ||
+          (item.title || "").toLowerCase().includes(q) ||
+          (item.description || "").toLowerCase().includes(q);
+
+        const matchesType = type === "all" || item.type === type;
+        const matchesCategory = category === "all" || item.category === category;
+
+        return matchesSearch && matchesType && matchesCategory;
+      });
+    }
+
+    function renderCards(){
+      const items = getFilteredItems();
+
+      if(!items.length){
+        grid.innerHTML = `<div class="empty">No matching resources found.</div>`;
+        return;
+      }
+
+      grid.innerHTML = items.map(item => `
+        <article class="card">
+          <div class="thumbWrap">
+            ${renderThumb(item)}
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span class="pill">${item.type}</span>
+              <span class="pill">${item.category || "general"}</span>
+            </div>
+            <h2 class="title">${escapeHtml(item.title || "Untitled")}</h2>
+            <p class="desc">${escapeHtml(item.description || "")}</p>
+            <div class="actions">
+              <button class="btn" type="button" onclick='openPreview(${JSON.stringify(item).replace(/'/g, "&apos;")})'>Preview</button>
+              <a class="btn" href="${item.file}" target="_blank" rel="noopener">Open</a>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderThumb(item){
+      if(item.type === "image"){
+        return `<img src="${item.thumbnail || item.file}" alt="${escapeHtml(item.title || "image")}">`;
+      }
+
+      if(item.type === "video"){
+        return item.thumbnail
+          ? `<img src="${item.thumbnail}" alt="${escapeHtml(item.title || "video")}">`
+          : `<div class="docIcon">🎬</div>`;
+      }
+
+      return item.thumbnail
+        ? `<img src="${item.thumbnail}" alt="${escapeHtml(item.title || "document")}">`
+        : `<div class="docIcon">📄</div>`;
+    }
+
+    function openPreview(item){
+      modalTitle.textContent = item.title || "";
+      modalDesc.textContent = item.description || "";
+      openFileLink.href = item.file;
+
+      if(item.type === "image"){
+        viewer.innerHTML = `<img src="${item.file}" alt="${escapeHtml(item.title || "image")}">`;
+      } else if(item.type === "video"){
+        viewer.innerHTML = `<video controls src="${item.file}"></video>`;
+      } else {
+        viewer.innerHTML = `<iframe src="${item.file}"></iframe>`;
+      }
+
+      previewModal.showModal();
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    closeModal.addEventListener("click", () => {
+      previewModal.close();
+      viewer.innerHTML = "";
+    });
+
+    previewModal.addEventListener("click", (e) => {
+      const rect = previewModal.getBoundingClientRect();
+      const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+
+      if(!inside){
+        previewModal.close();
+        viewer.innerHTML = "";
+      }
+    });
+
+    searchInput.addEventListener("input", renderCards);
+    typeFilter.addEventListener("change", renderCards);
+    categoryFilter.addEventListener("change", renderCards);
+
+    loadResources();
+  </script>
+</body>
+</html>
