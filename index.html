@@ -330,7 +330,8 @@
       try{
         const res = await fetch("resources.json", { cache: "no-store" });
         if(!res.ok) throw new Error("resources.json not found");
-        resources = await res.json();
+        const data = await res.json();
+        resources = data.items || [];
 
         populateCategories(resources);
         renderCards();
