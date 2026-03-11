@@ -1,370 +1,344 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FreeIran Sources</title>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GN46JLLP0X"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-GN46JLLP0X');
-</script>
+  <meta property="og:title" content="FreeIran Sources">
+  <meta property="og:description" content="Evidence library documenting the situation in Iran through videos, documents, and images.">
+  <meta property="og:type" content="website">
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{
+      --bg0:#07131c;
+      --bg1:#0b1d2a;
+      --bg2:#061018;
+      --card0:#0d2230;
+      --card1:#0a1b27;
+      --text:#e8f2ff;
+      --muted:rgba(232,242,255,.74);
+      --border:rgba(255,255,255,.10);
+      --accent:#c9a96b;
+    }
 
-<title>FreeIran Sources</title>
+    *{box-sizing:border-box}
 
-<meta property="og:title" content="FreeIran Sources">
-<meta property="og:description" content="Evidence library documenting the situation in Iran through videos, documents, and images.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://freeiransources.netlify.app/">
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(47,192,214,.10), transparent 55%),
+        radial-gradient(900px 600px at 85% 0%, rgba(60,120,255,.10), transparent 50%),
+        linear-gradient(180deg,var(--bg1),var(--bg0) 55%,var(--bg2));
+      min-height:100vh;
+    }
 
-<style>
-:root{
-  --bg0:#07131c;
-  --bg1:#0b1d2a;
-  --bg2:#061018;
-  --card0:#0d2230;
-  --card1:#0a1b27;
-  --text:#e8f2ff;
-  --muted:rgba(232,242,255,.74);
-  --border:rgba(255,255,255,.10);
-  --accent:#c9a96b;
-}
+    .wrap{
+      max-width:1240px;
+      margin:0 auto;
+      padding:34px 18px 60px;
+    }
 
-*{box-sizing:border-box}
+    .hero{
+      text-align:center;
+      margin-bottom:28px;
+    }
 
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(1200px 700px at 15% 10%, rgba(47,192,214,.10), transparent 55%),
-    radial-gradient(900px 600px at 85% 0%, rgba(60,120,255,.10), transparent 50%),
-    linear-gradient(180deg,var(--bg1),var(--bg0) 55%,var(--bg2));
-  min-height:100vh;
-}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:16px;
+      padding:10px 16px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      font-weight:800;
+    }
 
-.wrap{
-  max-width:1240px;
-  margin:0 auto;
-  padding:34px 18px 60px;
-}
+    .hero h1{
+      margin:0;
+      font-size:42px;
+      letter-spacing:.2px;
+    }
 
-.hero{
-  text-align:center;
-  margin-bottom:28px;
-}
+    .hero p{
+      max-width:860px;
+      margin:14px auto 0;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:17px;
+    }
 
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:16px;
-  padding:10px 16px;
-  border:1px solid var(--border);
-  border-radius:999px;
-  background:rgba(255,255,255,.05);
-  font-weight:800;
-}
+    .toolbar{
+      display:grid;
+      grid-template-columns:1.5fr .8fr .8fr;
+      gap:14px;
+      margin:28px 0 22px;
+    }
 
-.hero h1{
-  margin:0;
-  font-size:42px;
-  letter-spacing:.2px;
-}
+    .input, .select{
+      width:100%;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      border-radius:16px;
+      padding:14px 16px;
+      outline:none;
+      font-size:15px;
+    }
 
-.hero p{
-  max-width:860px;
-  margin:14px auto 0;
-  color:var(--muted);
-  line-height:1.8;
-  font-size:17px;
-}
+    .select option{
+      color:#111;
+    }
 
-.toolbar{
-  display:grid;
-  grid-template-columns:1.5fr .8fr .8fr;
-  gap:14px;
-  margin:28px 0 22px;
-}
+    .stats{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
 
-.input, .select{
-  width:100%;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.05);
-  color:var(--text);
-  border-radius:16px;
-  padding:14px 16px;
-  outline:none;
-  font-size:15px;
-}
+    .stat{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
+    }
 
-.select option{
-  color:#111;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+      gap:18px;
+    }
 
-.stats{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:18px;
-}
+    .card{
+      border:1px solid var(--border);
+      border-radius:22px;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        linear-gradient(180deg, var(--card0), var(--card1));
+      box-shadow:0 20px 50px rgba(0,0,0,.38);
+      display:flex;
+      flex-direction:column;
+    }
 
-.stat{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.04);
-  color:var(--muted);
-  font-size:14px;
-  font-weight:700;
-}
+    .thumbWrap{
+      position:relative;
+      height:200px;
+      background:rgba(255,255,255,.04);
+      overflow:hidden;
+      border-bottom:1px solid var(--border);
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
-  gap:18px;
-}
+    .thumbWrap img,
+    .thumbWrap video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
 
-.card{
-  border:1px solid var(--border);
-  border-radius:22px;
-  overflow:hidden;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
-    linear-gradient(180deg, var(--card0), var(--card1));
-  box-shadow:0 20px 50px rgba(0,0,0,.38);
-  display:flex;
-  flex-direction:column;
-}
+    .fileBadge{
+      position:absolute;
+      top:12px;
+      left:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.32);
+      color:#fff;
+      font-weight:800;
+      font-size:12px;
+      text-transform:capitalize;
+    }
 
-.thumbWrap{
-  position:relative;
-  height:200px;
-  background:rgba(255,255,255,.04);
-  overflow:hidden;
-  border-bottom:1px solid var(--border);
-}
+    .docPlaceholder{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:68px;
+    }
 
-.thumbWrap img,
-.thumbWrap video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
+    .content{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1;
+    }
 
-.fileBadge{
-  position:absolute;
-  top:12px;
-  left:12px;
-  padding:7px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(0,0,0,.32);
-  color:#fff;
-  font-weight:800;
-  font-size:12px;
-  text-transform:capitalize;
-}
+    .meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
 
-.docPlaceholder{
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:68px;
-}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:700;
+      text-transform:capitalize;
+    }
 
-.content{
-  padding:16px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  flex:1;
-}
+    .title{
+      margin:0;
+      font-size:22px;
+      line-height:1.3;
+    }
 
-.meta{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
+    .desc{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      flex:1;
+    }
 
-.pill{
-  display:inline-flex;
-  align-items:center;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.05);
-  color:var(--muted);
-  font-size:12px;
-  font-weight:700;
-  text-transform:capitalize;
-}
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:4px;
+    }
 
-.title{
-  margin:0;
-  font-size:22px;
-  line-height:1.3;
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      text-decoration:none;
+      font-weight:800;
+      cursor:pointer;
+    }
 
-.desc{
-  margin:0;
-  color:var(--muted);
-  line-height:1.75;
-  flex:1;
-}
+    .btn:hover{
+      border-color:rgba(201,169,107,.5);
+    }
 
-.actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:4px;
-}
+    .empty{
+      text-align:center;
+      color:var(--muted);
+      padding:42px 20px;
+      border:1px dashed var(--border);
+      border-radius:18px;
+    }
 
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 14px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
-  color:#fff;
-  text-decoration:none;
-  font-weight:800;
-  cursor:pointer;
-}
+    dialog{
+      width:min(1050px,96vw);
+      border:none;
+      padding:0;
+      border-radius:24px;
+      background:#081521;
+      color:var(--text);
+    }
 
-.btn:hover{
-  border-color:rgba(201,169,107,.5);
-}
+    dialog::backdrop{
+      background:rgba(0,0,0,.68);
+    }
 
-.empty{
-  text-align:center;
-  color:var(--muted);
-  padding:42px 20px;
-  border:1px dashed var(--border);
-  border-radius:18px;
-}
+    .modalHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:16px 18px;
+      border-bottom:1px solid var(--border);
+    }
 
-dialog{
-  width:min(1050px,96vw);
-  border:none;
-  padding:0;
-  border-radius:24px;
-  background:#081521;
-  color:var(--text);
-}
+    .modalTitle{
+      margin:0;
+      font-size:24px;
+    }
 
-dialog::backdrop{
-  background:rgba(0,0,0,.68);
-}
+    .closeBtn{
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      color:#fff;
+      border-radius:12px;
+      padding:8px 12px;
+      cursor:pointer;
+      font-weight:800;
+    }
 
-.modalHead{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:16px 18px;
-  border-bottom:1px solid var(--border);
-}
+    .modalBody{
+      padding:16px 18px 20px;
+    }
 
-.modalTitle{
-  margin:0;
-  font-size:24px;
-}
+    .modalDesc{
+      color:var(--muted);
+      line-height:1.8;
+      margin:0 0 14px;
+    }
 
-.closeBtn{
-  background:rgba(255,255,255,.06);
-  border:1px solid var(--border);
-  color:#fff;
-  border-radius:12px;
-  padding:8px 12px;
-  cursor:pointer;
-  font-weight:800;
-}
+    .viewer{
+      width:100%;
+      min-height:560px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+      background:#031018;
+    }
 
-.modalBody{
-  padding:16px 18px 20px;
-}
+    .viewer img,
+    .viewer video,
+    .viewer iframe{
+      width:100%;
+      min-height:560px;
+      border:none;
+      display:block;
+      background:#031018;
+    }
 
-.modalDesc{
-  color:var(--muted);
-  line-height:1.8;
-  margin:0 0 14px;
-}
+    .footer{
+      margin-top:40px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+    }
 
-.viewer{
-  width:100%;
-  min-height:560px;
-  border:1px solid var(--border);
-  border-radius:16px;
-  overflow:hidden;
-  background:#031018;
-}
-
-.viewer img,
-.viewer video,
-.viewer iframe{
-  width:100%;
-  min-height:560px;
-  border:none;
-  display:block;
-  background:#031018;
-}
-
-.footer{
-  margin-top:40px;
-  text-align:center;
-  color:var(--muted);
-  font-size:14px;
-}
-
-@media (max-width:820px){
-  .toolbar{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:34px;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  .viewer,
-  .viewer img,
-  .viewer video,
-  .viewer iframe{
-    min-height:320px;
-  }
-}
-</style>
-</head>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user && window.location.hash.includes("invite_token")) {
-        window.netlifyIdentity.open();
+    @media (max-width:820px){
+      .toolbar{
+        grid-template-columns:1fr;
       }
-    });
 
-    window.netlifyIdentity.on("login", () => {
-      document.location.href = "/admin/";
-    });
-  }
-</script>
+      .hero h1{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+
+      .viewer,
+      .viewer img,
+      .viewer video,
+      .viewer iframe{
+        min-height:320px;
+      }
+    }
+  </style>
+</head>
 <body>
   <div class="wrap">
 
@@ -418,225 +392,183 @@ dialog::backdrop{
     </div>
   </dialog>
 
-<script>
-let resources = [];
+  <script>
+    let resources = [];
 
-const grid = document.getElementById("grid");
-const searchInput = document.getElementById("searchInput");
-const typeFilter = document.getElementById("typeFilter");
-const categoryFilter = document.getElementById("categoryFilter");
+    const grid = document.getElementById("grid");
+    const searchInput = document.getElementById("searchInput");
+    const typeFilter = document.getElementById("typeFilter");
+    const categoryFilter = document.getElementById("categoryFilter");
 
-const countAll = document.getElementById("countAll");
-const countDocs = document.getElementById("countDocs");
-const countVideos = document.getElementById("countVideos");
-const countImages = document.getElementById("countImages");
+    const countAll = document.getElementById("countAll");
+    const countDocs = document.getElementById("countDocs");
+    const countVideos = document.getElementById("countVideos");
+    const countImages = document.getElementById("countImages");
 
-const previewModal = document.getElementById("previewModal");
-const closeModal = document.getElementById("closeModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalDesc = document.getElementById("modalDesc");
-const viewer = document.getElementById("viewer");
-const openFileLink = document.getElementById("openFileLink");
+    const previewModal = document.getElementById("previewModal");
+    const closeModal = document.getElementById("closeModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const viewer = document.getElementById("viewer");
+    const openFileLink = document.getElementById("openFileLink");
 
-async function loadResources(){
-  try{
-    const filesToTry = [
-      "resources.json",
-      "data/documents.json",
-      "data/videos.json",
-      "data/images.json"
-    ];
-
-    let mergedItems = [];
-    let loadedAny = false;
-
-    for(const file of filesToTry){
+    async function loadResources(){
       try{
-        const res = await fetch(file, { cache: "no-store" });
-        if(!res.ok) continue;
+        const res = await fetch("resources.json", { cache: "no-store" });
+        if(!res.ok) throw new Error("resources.json not found");
+
         const data = await res.json();
+        resources = data.items || [];
 
-        if(Array.isArray(data)){
-          mergedItems = mergedItems.concat(data);
-          loadedAny = true;
-        }else if(Array.isArray(data.items)){
-          mergedItems = mergedItems.concat(data.items);
-          loadedAny = true;
-        }
+        populateCategories(resources);
+        renderStats(resources);
+        renderCards();
       }catch(err){
+        grid.innerHTML = `<div class="empty">Could not load resources.</div>`;
+        console.error(err);
       }
     }
 
-    if(!loadedAny){
-      throw new Error("No resource files found");
+    function populateCategories(items){
+      const categories = [...new Set(items.map(i => i.category).filter(Boolean))].sort();
+      for(const cat of categories){
+        const option = document.createElement("option");
+        option.value = cat;
+        option.textContent = capitalize(cat);
+        categoryFilter.appendChild(option);
+      }
     }
 
-    resources = mergedItems;
-
-    populateCategories(resources);
-    renderStats(resources);
-    renderCards();
-  }catch(err){
-    grid.innerHTML = `<div class="empty">Could not load resources.</div>`;
-    console.error(err);
-  }
-}
-
-function populateCategories(items){
-  const categories = [...new Set(items.map(i => i.category).filter(Boolean))].sort();
-  for(const cat of categories){
-    const option = document.createElement("option");
-    option.value = cat;
-    option.textContent = capitalize(cat);
-    categoryFilter.appendChild(option);
-  }
-}
-
-function renderStats(items){
-  countAll.textContent = items.length;
-  countDocs.textContent = items.filter(i => i.type === "document").length;
-  countVideos.textContent = items.filter(i => i.type === "video").length;
-  countImages.textContent = items.filter(i => i.type === "image").length;
-}
-
-function capitalize(text){
-  return (text || "").charAt(0).toUpperCase() + (text || "").slice(1);
-}
-
-function getFilteredItems(){
-  const q = searchInput.value.trim().toLowerCase();
-  const type = typeFilter.value;
-  const category = categoryFilter.value;
-
-  return resources.filter(item => {
-    const matchesSearch =
-      !q ||
-      (item.title || "").toLowerCase().includes(q) ||
-      (item.description || "").toLowerCase().includes(q);
-
-    const matchesType = type === "all" || item.type === type;
-    const matchesCategory = category === "all" || item.category === category;
-
-    return matchesSearch && matchesType && matchesCategory;
-  });
-}
-
-function renderCards(){
-  const items = getFilteredItems();
-
-  if(!items.length){
-    grid.innerHTML = `<div class="empty">No matching resources found.</div>`;
-    return;
-  }
-
-  grid.innerHTML = items.map((item, index) => `
-    <article class="card">
-      <div class="thumbWrap">
-        ${renderThumb(item)}
-        <div class="fileBadge">${escapeHtml(item.type || "file")}</div>
-      </div>
-      <div class="content">
-        <div class="meta">
-          <span class="pill">${escapeHtml(item.category || "general")}</span>
-        </div>
-        <h2 class="title">${escapeHtml(item.title || "Untitled")}</h2>
-        <p class="desc">${escapeHtml(item.description || "")}</p>
-        <div class="actions">
-          <button class="btn" type="button" onclick="openPreviewByIndex(${index})">Preview</button>
-          <a class="btn" href="${encodeURI(item.file || "#")}" target="_blank" rel="noopener">Open</a>
-        </div>
-      </div>
-    </article>
-  `).join("");
-}
-
-function renderThumb(item){
-  if(item.type === "image"){
-    return `<img src="${encodeURI(item.thumbnail || item.file || "")}" alt="${escapeHtml(item.title || "image")}">`;
-  }
-
-  if(item.type === "video"){
-    if(item.thumbnail){
-      return `<img src="${encodeURI(item.thumbnail)}" alt="${escapeHtml(item.title || "video")}">`;
+    function renderStats(items){
+      countAll.textContent = items.length;
+      countDocs.textContent = items.filter(i => i.type === "document").length;
+      countVideos.textContent = items.filter(i => i.type === "video").length;
+      countImages.textContent = items.filter(i => i.type === "image").length;
     }
-    return `<div class="docPlaceholder">🎬</div>`;
-  }
 
-  if(item.thumbnail){
-    return `<img src="${encodeURI(item.thumbnail)}" alt="${escapeHtml(item.title || "document")}">`;
-  }
+    function capitalize(text){
+      return (text || "").charAt(0).toUpperCase() + (text || "").slice(1);
+    }
 
-  return `<div class="docPlaceholder">📄</div>`;
-}
+    function getFilteredItems(){
+      const q = searchInput.value.trim().toLowerCase();
+      const type = typeFilter.value;
+      const category = categoryFilter.value;
 
-function openPreviewByIndex(index){
-  const items = getFilteredItems();
-  const item = items[index];
-  if(!item) return;
+      return resources.filter(item => {
+        const matchesSearch =
+          !q ||
+          (item.title || "").toLowerCase().includes(q) ||
+          (item.description || "").toLowerCase().includes(q);
 
-  modalTitle.textContent = item.title || "";
-  modalDesc.textContent = item.description || "";
-  openFileLink.href = item.file || "#";
+        const matchesType = type === "all" || item.type === type;
+        const matchesCategory = category === "all" || item.category === category;
 
-  if(item.type === "image"){
-    viewer.innerHTML = `<img src="${encodeURI(item.file || "")}" alt="${escapeHtml(item.title || "image")}">`;
-  }else if(item.type === "video"){
-    viewer.innerHTML = `<video controls src="${encodeURI(item.file || "")}"></video>`;
-  }else{
-    viewer.innerHTML = `<iframe src="${encodeURI(item.file || "")}"></iframe>`;
-  }
+        return matchesSearch && matchesType && matchesCategory;
+      });
+    }
 
-  previewModal.showModal();
-}
+    function renderCards(){
+      const items = getFilteredItems();
 
-function escapeHtml(str){
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
+      if(!items.length){
+        grid.innerHTML = `<div class="empty">No matching resources found.</div>`;
+        return;
+      }
 
-closeModal.addEventListener("click", () => {
-  previewModal.close();
-  viewer.innerHTML = "";
-});
+      grid.innerHTML = items.map((item, index) => `
+        <article class="card">
+          <div class="thumbWrap">
+            ${renderThumb(item)}
+            <div class="fileBadge">${escapeHtml(item.type || "file")}</div>
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span class="pill">${escapeHtml(item.category || "general")}</span>
+            </div>
+            <h2 class="title">${escapeHtml(item.title || "Untitled")}</h2>
+            <p class="desc">${escapeHtml(item.description || "")}</p>
+            <div class="actions">
+              <button class="btn" type="button" onclick="openPreviewByIndex(${index})">Preview</button>
+              <a class="btn" href="${encodeURI(item.file || "#")}" target="_blank" rel="noopener">Open</a>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
 
-previewModal.addEventListener("click", (e) => {
-  const rect = previewModal.getBoundingClientRect();
-  const inside =
-    e.clientX >= rect.left &&
-    e.clientX <= rect.right &&
-    e.clientY >= rect.top &&
-    e.clientY <= rect.bottom;
+    function renderThumb(item){
+      if(item.type === "image"){
+        return `<img src="${encodeURI(item.thumbnail || item.file || "")}" alt="${escapeHtml(item.title || "image")}">`;
+      }
 
-  if(!inside){
-    previewModal.close();
-    viewer.innerHTML = "";
-  }
-});
+      if(item.type === "video"){
+        if(item.thumbnail){
+          return `<img src="${encodeURI(item.thumbnail)}" alt="${escapeHtml(item.title || "video")}">`;
+        }
+        return `<div class="docPlaceholder">🎬</div>`;
+      }
 
-searchInput.addEventListener("input", renderCards);
-typeFilter.addEventListener("change", renderCards);
-categoryFilter.addEventListener("change", renderCards);
+      if(item.thumbnail){
+        return `<img src="${encodeURI(item.thumbnail)}" alt="${escapeHtml(item.title || "document")}">`;
+      }
 
-loadResources();
-</script>
+      return `<div class="docPlaceholder">📄</div>`;
+    }
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user && window.location.hash.includes("invite_token")) {
-        window.netlifyIdentity.open();
+    function openPreviewByIndex(index){
+      const items = getFilteredItems();
+      const item = items[index];
+      if(!item) return;
+
+      modalTitle.textContent = item.title || "";
+      modalDesc.textContent = item.description || "";
+      openFileLink.href = item.file || "#";
+
+      if(item.type === "image"){
+        viewer.innerHTML = `<img src="${encodeURI(item.file || "")}" alt="${escapeHtml(item.title || "image")}">`;
+      }else if(item.type === "video"){
+        viewer.innerHTML = `<video controls src="${encodeURI(item.file || "")}"></video>`;
+      }else{
+        viewer.innerHTML = `<iframe src="${encodeURI(item.file || "")}"></iframe>`;
+      }
+
+      previewModal.showModal();
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    closeModal.addEventListener("click", () => {
+      previewModal.close();
+      viewer.innerHTML = "";
+    });
+
+    previewModal.addEventListener("click", (e) => {
+      const rect = previewModal.getBoundingClientRect();
+      const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+
+      if(!inside){
+        previewModal.close();
+        viewer.innerHTML = "";
       }
     });
 
-    window.netlifyIdentity.on("login", () => {
-      document.location.href = "/admin/";
-    });
-  }
-</script>
+    searchInput.addEventListener("input", renderCards);
+    typeFilter.addEventListener("change", renderCards);
+    categoryFilter.addEventListener("change", renderCards);
+
+    loadResources();
+  </script>
 </body>
 </html>
