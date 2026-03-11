@@ -1,288 +1,370 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FreeIran Sources</title>
 
-  <style>
-    :root{
-      --bg0:#07131c;
-      --bg1:#0b1d2a;
-      --bg2:#061018;
-      --card0:#0d2230;
-      --card1:#0a1b27;
-      --text:#e8f2ff;
-      --muted:rgba(232,242,255,.75);
-      --border:rgba(255,255,255,.10);
-      --accent:#c9a96b;
-    }
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GN46JLLP0X"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-GN46JLLP0X');
+</script>
 
-    *{box-sizing:border-box}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(47,192,214,.10), transparent 55%),
-        radial-gradient(900px 600px at 85% 0%, rgba(60,120,255,.10), transparent 50%),
-        linear-gradient(180deg,var(--bg1),var(--bg0) 55%,var(--bg2));
-      min-height:100vh;
-    }
+<title>FreeIran Sources</title>
 
-    .wrap{
-      max-width:1200px;
-      margin:0 auto;
-      padding:32px 18px 60px;
-    }
+<meta property="og:title" content="FreeIran Sources">
+<meta property="og:description" content="Evidence library documenting the situation in Iran through videos, documents, and images.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freeiransources.netlify.app/">
 
-    .hero{
-      text-align:center;
-      margin-bottom:28px;
-    }
+<style>
+:root{
+  --bg0:#07131c;
+  --bg1:#0b1d2a;
+  --bg2:#061018;
+  --card0:#0d2230;
+  --card1:#0a1b27;
+  --text:#e8f2ff;
+  --muted:rgba(232,242,255,.74);
+  --border:rgba(255,255,255,.10);
+  --accent:#c9a96b;
+}
 
-    .hero h1{
-      margin:0 0 10px;
-      font-size:42px;
-    }
+*{box-sizing:border-box}
 
-    .hero p{
-      margin:0 auto;
-      max-width:850px;
-      color:var(--muted);
-      line-height:1.8;
-    }
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 700px at 15% 10%, rgba(47,192,214,.10), transparent 55%),
+    radial-gradient(900px 600px at 85% 0%, rgba(60,120,255,.10), transparent 50%),
+    linear-gradient(180deg,var(--bg1),var(--bg0) 55%,var(--bg2));
+  min-height:100vh;
+}
 
-    .toolbar{
-      display:grid;
-      grid-template-columns: 1.4fr .8fr .8fr;
-      gap:12px;
-      margin:26px 0 22px;
-    }
+.wrap{
+  max-width:1240px;
+  margin:0 auto;
+  padding:34px 18px 60px;
+}
 
-    .input, .select{
-      width:100%;
-      padding:14px 16px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.05);
-      color:var(--text);
-      outline:none;
-    }
+.hero{
+  text-align:center;
+  margin-bottom:28px;
+}
 
-    .select option{
-      color:#111;
-    }
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+  padding:10px 16px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  font-weight:800;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:18px;
-    }
+.hero h1{
+  margin:0;
+  font-size:42px;
+  letter-spacing:.2px;
+}
 
-    .card{
-      border:1px solid var(--border);
-      border-radius:22px;
-      overflow:hidden;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
-        linear-gradient(180deg, var(--card0), var(--card1));
-      box-shadow:0 20px 50px rgba(0,0,0,.38);
-      display:flex;
-      flex-direction:column;
-    }
+.hero p{
+  max-width:860px;
+  margin:14px auto 0;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:17px;
+}
 
-    .thumbWrap{
-      height:190px;
-      background:rgba(255,255,255,.04);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      border-bottom:1px solid var(--border);
-    }
+.toolbar{
+  display:grid;
+  grid-template-columns:1.5fr .8fr .8fr;
+  gap:14px;
+  margin:28px 0 22px;
+}
 
-    .thumbWrap img,
-    .thumbWrap video{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
+.input, .select{
+  width:100%;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.05);
+  color:var(--text);
+  border-radius:16px;
+  padding:14px 16px;
+  outline:none;
+  font-size:15px;
+}
 
-    .docIcon{
-      font-size:64px;
-      opacity:.9;
-    }
+.select option{
+  color:#111;
+}
 
-    .content{
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      flex:1;
-    }
+.stats{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
 
-    .meta{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
+.stat{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:var(--muted);
+  font-size:14px;
+  font-weight:700;
+}
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-      color:var(--muted);
-      font-size:12px;
-      font-weight:700;
-      text-transform:capitalize;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:18px;
+}
 
-    .title{
-      margin:0;
-      font-size:21px;
-      line-height:1.3;
-    }
+.card{
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+    linear-gradient(180deg, var(--card0), var(--card1));
+  box-shadow:0 20px 50px rgba(0,0,0,.38);
+  display:flex;
+  flex-direction:column;
+}
 
-    .desc{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-      flex:1;
-    }
+.thumbWrap{
+  position:relative;
+  height:200px;
+  background:rgba(255,255,255,.04);
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
 
-    .actions{
-      display:flex;
-      gap:10px;
-      margin-top:4px;
-    }
+.thumbWrap img,
+.thumbWrap video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      color:#fff;
-      text-decoration:none;
-      font-weight:800;
-      cursor:pointer;
-    }
+.fileBadge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(0,0,0,.32);
+  color:#fff;
+  font-weight:800;
+  font-size:12px;
+  text-transform:capitalize;
+}
 
-    .btn:hover{
-      border-color:rgba(201,169,107,.55);
-    }
+.docPlaceholder{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:68px;
+}
 
-    .empty{
-      text-align:center;
-      color:var(--muted);
-      padding:40px 20px;
-      border:1px dashed var(--border);
-      border-radius:18px;
-    }
+.content{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  flex:1;
+}
 
-    dialog{
-      width:min(1000px,96vw);
-      border:none;
-      border-radius:22px;
-      padding:0;
-      background:#081521;
-      color:var(--text);
-    }
+.meta{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
 
-    dialog::backdrop{
-      background:rgba(0,0,0,.65);
-    }
+.pill{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+  text-transform:capitalize;
+}
 
-    .modalHead{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:16px 18px;
-      border-bottom:1px solid var(--border);
-    }
+.title{
+  margin:0;
+  font-size:22px;
+  line-height:1.3;
+}
 
-    .modalTitle{
-      margin:0;
-      font-size:22px;
-    }
+.desc{
+  margin:0;
+  color:var(--muted);
+  line-height:1.75;
+  flex:1;
+}
 
-    .closeBtn{
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--border);
-      color:#fff;
-      border-radius:12px;
-      padding:8px 12px;
-      cursor:pointer;
-      font-weight:800;
-    }
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:4px;
+}
 
-    .modalBody{
-      padding:16px 18px 20px;
-    }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  cursor:pointer;
+}
 
-    .modalDesc{
-      color:var(--muted);
-      line-height:1.8;
-      margin:0 0 14px;
-    }
+.btn:hover{
+  border-color:rgba(201,169,107,.5);
+}
 
-    .viewer{
-      width:100%;
-      min-height:520px;
-      border:1px solid var(--border);
-      border-radius:16px;
-      background:#031018;
-    }
+.empty{
+  text-align:center;
+  color:var(--muted);
+  padding:42px 20px;
+  border:1px dashed var(--border);
+  border-radius:18px;
+}
 
-    .viewer img,
-    .viewer video,
-    .viewer iframe{
-      width:100%;
-      min-height:520px;
-      border:none;
-      border-radius:16px;
-      display:block;
-      background:#031018;
-    }
+dialog{
+  width:min(1050px,96vw);
+  border:none;
+  padding:0;
+  border-radius:24px;
+  background:#081521;
+  color:var(--text);
+}
 
-    @media (max-width:800px){
-      .toolbar{
-        grid-template-columns:1fr;
-      }
-      .hero h1{
-        font-size:34px;
-      }
-      .viewer,
-      .viewer img,
-      .viewer video,
-      .viewer iframe{
-        min-height:300px;
-      }
-    }
-  </style>
+dialog::backdrop{
+  background:rgba(0,0,0,.68);
+}
+
+.modalHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:16px 18px;
+  border-bottom:1px solid var(--border);
+}
+
+.modalTitle{
+  margin:0;
+  font-size:24px;
+}
+
+.closeBtn{
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
+  color:#fff;
+  border-radius:12px;
+  padding:8px 12px;
+  cursor:pointer;
+  font-weight:800;
+}
+
+.modalBody{
+  padding:16px 18px 20px;
+}
+
+.modalDesc{
+  color:var(--muted);
+  line-height:1.8;
+  margin:0 0 14px;
+}
+
+.viewer{
+  width:100%;
+  min-height:560px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  background:#031018;
+}
+
+.viewer img,
+.viewer video,
+.viewer iframe{
+  width:100%;
+  min-height:560px;
+  border:none;
+  display:block;
+  background:#031018;
+}
+
+.footer{
+  margin-top:40px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+
+@media (max-width:820px){
+  .toolbar{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .viewer,
+  .viewer img,
+  .viewer video,
+  .viewer iframe{
+    min-height:320px;
+  }
+}
+</style>
 </head>
 <body>
   <div class="wrap">
+
     <section class="hero">
+      <div class="badge">🕊️ Evidence Library</div>
       <h1>FreeIran Sources</h1>
       <p>
-        A public evidence library documenting the situation in Iran through
-        reports, testimonies, videos, and images. Each item includes a clear
-        description so visitors can understand what it is before opening it.
+        A public archive of documents, videos, and images documenting the situation in Iran.
+        Each item includes a description to help visitors understand the evidence before opening it.
       </p>
     </section>
 
     <section class="toolbar">
-      <input id="searchInput" class="input" type="text" placeholder="Search title or description..." />
+      <input id="searchInput" class="input" type="text" placeholder="Search title or description...">
       <select id="typeFilter" class="select">
         <option value="all">All types</option>
         <option value="document">Documents</option>
@@ -294,7 +376,18 @@
       </select>
     </section>
 
+    <section class="stats">
+      <div class="stat">📚 Total items: <span id="countAll">0</span></div>
+      <div class="stat">📄 Documents: <span id="countDocs">0</span></div>
+      <div class="stat">🎥 Videos: <span id="countVideos">0</span></div>
+      <div class="stat">🖼 Images: <span id="countImages">0</span></div>
+    </section>
+
     <section id="grid" class="grid"></section>
+
+    <div class="footer">
+      FreeIran Sources • Public evidence archive
+    </div>
   </div>
 
   <dialog id="previewModal">
@@ -311,162 +404,225 @@
     </div>
   </dialog>
 
-  <script>
-    let resources = [];
+<script>
+let resources = [];
 
-    const grid = document.getElementById("grid");
-    const searchInput = document.getElementById("searchInput");
-    const typeFilter = document.getElementById("typeFilter");
-    const categoryFilter = document.getElementById("categoryFilter");
+const grid = document.getElementById("grid");
+const searchInput = document.getElementById("searchInput");
+const typeFilter = document.getElementById("typeFilter");
+const categoryFilter = document.getElementById("categoryFilter");
 
-    const previewModal = document.getElementById("previewModal");
-    const closeModal = document.getElementById("closeModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalDesc = document.getElementById("modalDesc");
-    const viewer = document.getElementById("viewer");
-    const openFileLink = document.getElementById("openFileLink");
+const countAll = document.getElementById("countAll");
+const countDocs = document.getElementById("countDocs");
+const countVideos = document.getElementById("countVideos");
+const countImages = document.getElementById("countImages");
 
-    async function loadResources(){
+const previewModal = document.getElementById("previewModal");
+const closeModal = document.getElementById("closeModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const viewer = document.getElementById("viewer");
+const openFileLink = document.getElementById("openFileLink");
+
+async function loadResources(){
+  try{
+    const filesToTry = [
+      "resources.json",
+      "data/documents.json",
+      "data/videos.json",
+      "data/images.json"
+    ];
+
+    let mergedItems = [];
+    let loadedAny = false;
+
+    for(const file of filesToTry){
       try{
-        const res = await fetch("resources.json", { cache: "no-store" });
-        if(!res.ok) throw new Error("resources.json not found");
+        const res = await fetch(file, { cache: "no-store" });
+        if(!res.ok) continue;
         const data = await res.json();
-        resources = data.items || [];
 
-        populateCategories(resources);
-        renderCards();
+        if(Array.isArray(data)){
+          mergedItems = mergedItems.concat(data);
+          loadedAny = true;
+        }else if(Array.isArray(data.items)){
+          mergedItems = mergedItems.concat(data.items);
+          loadedAny = true;
+        }
       }catch(err){
-        grid.innerHTML = `<div class="empty">Could not load resources.json</div>`;
-        console.error(err);
       }
     }
 
-    function populateCategories(items){
-      const categories = [...new Set(items.map(i => i.category).filter(Boolean))].sort();
-      for(const cat of categories){
-        const option = document.createElement("option");
-        option.value = cat;
-        option.textContent = capitalize(cat);
-        categoryFilter.appendChild(option);
+    if(!loadedAny){
+      throw new Error("No resource files found");
+    }
+
+    resources = mergedItems;
+
+    populateCategories(resources);
+    renderStats(resources);
+    renderCards();
+  }catch(err){
+    grid.innerHTML = `<div class="empty">Could not load resources.</div>`;
+    console.error(err);
+  }
+}
+
+function populateCategories(items){
+  const categories = [...new Set(items.map(i => i.category).filter(Boolean))].sort();
+  for(const cat of categories){
+    const option = document.createElement("option");
+    option.value = cat;
+    option.textContent = capitalize(cat);
+    categoryFilter.appendChild(option);
+  }
+}
+
+function renderStats(items){
+  countAll.textContent = items.length;
+  countDocs.textContent = items.filter(i => i.type === "document").length;
+  countVideos.textContent = items.filter(i => i.type === "video").length;
+  countImages.textContent = items.filter(i => i.type === "image").length;
+}
+
+function capitalize(text){
+  return (text || "").charAt(0).toUpperCase() + (text || "").slice(1);
+}
+
+function getFilteredItems(){
+  const q = searchInput.value.trim().toLowerCase();
+  const type = typeFilter.value;
+  const category = categoryFilter.value;
+
+  return resources.filter(item => {
+    const matchesSearch =
+      !q ||
+      (item.title || "").toLowerCase().includes(q) ||
+      (item.description || "").toLowerCase().includes(q);
+
+    const matchesType = type === "all" || item.type === type;
+    const matchesCategory = category === "all" || item.category === category;
+
+    return matchesSearch && matchesType && matchesCategory;
+  });
+}
+
+function renderCards(){
+  const items = getFilteredItems();
+
+  if(!items.length){
+    grid.innerHTML = `<div class="empty">No matching resources found.</div>`;
+    return;
+  }
+
+  grid.innerHTML = items.map((item, index) => `
+    <article class="card">
+      <div class="thumbWrap">
+        ${renderThumb(item)}
+        <div class="fileBadge">${escapeHtml(item.type || "file")}</div>
+      </div>
+      <div class="content">
+        <div class="meta">
+          <span class="pill">${escapeHtml(item.category || "general")}</span>
+        </div>
+        <h2 class="title">${escapeHtml(item.title || "Untitled")}</h2>
+        <p class="desc">${escapeHtml(item.description || "")}</p>
+        <div class="actions">
+          <button class="btn" type="button" onclick="openPreviewByIndex(${index})">Preview</button>
+          <a class="btn" href="${encodeURI(item.file || "#")}" target="_blank" rel="noopener">Open</a>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderThumb(item){
+  if(item.type === "image"){
+    return `<img src="${encodeURI(item.thumbnail || item.file || "")}" alt="${escapeHtml(item.title || "image")}">`;
+  }
+
+  if(item.type === "video"){
+    if(item.thumbnail){
+      return `<img src="${encodeURI(item.thumbnail)}" alt="${escapeHtml(item.title || "video")}">`;
+    }
+    return `<div class="docPlaceholder">🎬</div>`;
+  }
+
+  if(item.thumbnail){
+    return `<img src="${encodeURI(item.thumbnail)}" alt="${escapeHtml(item.title || "document")}">`;
+  }
+
+  return `<div class="docPlaceholder">📄</div>`;
+}
+
+function openPreviewByIndex(index){
+  const items = getFilteredItems();
+  const item = items[index];
+  if(!item) return;
+
+  modalTitle.textContent = item.title || "";
+  modalDesc.textContent = item.description || "";
+  openFileLink.href = item.file || "#";
+
+  if(item.type === "image"){
+    viewer.innerHTML = `<img src="${encodeURI(item.file || "")}" alt="${escapeHtml(item.title || "image")}">`;
+  }else if(item.type === "video"){
+    viewer.innerHTML = `<video controls src="${encodeURI(item.file || "")}"></video>`;
+  }else{
+    viewer.innerHTML = `<iframe src="${encodeURI(item.file || "")}"></iframe>`;
+  }
+
+  previewModal.showModal();
+}
+
+function escapeHtml(str){
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+closeModal.addEventListener("click", () => {
+  previewModal.close();
+  viewer.innerHTML = "";
+});
+
+previewModal.addEventListener("click", (e) => {
+  const rect = previewModal.getBoundingClientRect();
+  const inside =
+    e.clientX >= rect.left &&
+    e.clientX <= rect.right &&
+    e.clientY >= rect.top &&
+    e.clientY <= rect.bottom;
+
+  if(!inside){
+    previewModal.close();
+    viewer.innerHTML = "";
+  }
+});
+
+searchInput.addEventListener("input", renderCards);
+typeFilter.addEventListener("change", renderCards);
+categoryFilter.addEventListener("change", renderCards);
+
+loadResources();
+</script>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user && window.location.hash.includes("invite_token")) {
+        window.netlifyIdentity.open();
       }
-    }
-
-    function capitalize(text){
-      return (text || "").charAt(0).toUpperCase() + (text || "").slice(1);
-    }
-
-    function getFilteredItems(){
-      const q = searchInput.value.trim().toLowerCase();
-      const type = typeFilter.value;
-      const category = categoryFilter.value;
-
-      return resources.filter(item => {
-        const matchesSearch =
-          !q ||
-          (item.title || "").toLowerCase().includes(q) ||
-          (item.description || "").toLowerCase().includes(q);
-
-        const matchesType = type === "all" || item.type === type;
-        const matchesCategory = category === "all" || item.category === category;
-
-        return matchesSearch && matchesType && matchesCategory;
-      });
-    }
-
-    function renderCards(){
-      const items = getFilteredItems();
-
-      if(!items.length){
-        grid.innerHTML = `<div class="empty">No matching resources found.</div>`;
-        return;
-      }
-
-      grid.innerHTML = items.map(item => `
-        <article class="card">
-          <div class="thumbWrap">
-            ${renderThumb(item)}
-          </div>
-          <div class="content">
-            <div class="meta">
-              <span class="pill">${item.type}</span>
-              <span class="pill">${item.category || "general"}</span>
-            </div>
-            <h2 class="title">${escapeHtml(item.title || "Untitled")}</h2>
-            <p class="desc">${escapeHtml(item.description || "")}</p>
-            <div class="actions">
-              <button class="btn" type="button" onclick='openPreview(${JSON.stringify(item).replace(/'/g, "&apos;")})'>Preview</button>
-              <a class="btn" href="${item.file}" target="_blank" rel="noopener">Open</a>
-            </div>
-          </div>
-        </article>
-      `).join("");
-    }
-
-    function renderThumb(item){
-      if(item.type === "image"){
-        return `<img src="${item.thumbnail || item.file}" alt="${escapeHtml(item.title || "image")}">`;
-      }
-
-      if(item.type === "video"){
-        return item.thumbnail
-          ? `<img src="${item.thumbnail}" alt="${escapeHtml(item.title || "video")}">`
-          : `<div class="docIcon">🎬</div>`;
-      }
-
-      return item.thumbnail
-        ? `<img src="${item.thumbnail}" alt="${escapeHtml(item.title || "document")}">`
-        : `<div class="docIcon">📄</div>`;
-    }
-
-    function openPreview(item){
-      modalTitle.textContent = item.title || "";
-      modalDesc.textContent = item.description || "";
-      openFileLink.href = item.file;
-
-      if(item.type === "image"){
-        viewer.innerHTML = `<img src="${item.file}" alt="${escapeHtml(item.title || "image")}">`;
-      } else if(item.type === "video"){
-        viewer.innerHTML = `<video controls src="${item.file}"></video>`;
-      } else {
-        viewer.innerHTML = `<iframe src="${item.file}"></iframe>`;
-      }
-
-      previewModal.showModal();
-    }
-
-    function escapeHtml(str){
-      return String(str)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-    }
-
-    closeModal.addEventListener("click", () => {
-      previewModal.close();
-      viewer.innerHTML = "";
     });
 
-    previewModal.addEventListener("click", (e) => {
-      const rect = previewModal.getBoundingClientRect();
-      const inside =
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom;
-
-      if(!inside){
-        previewModal.close();
-        viewer.innerHTML = "";
-      }
+    window.netlifyIdentity.on("login", () => {
+      document.location.href = "/admin/";
     });
-
-    searchInput.addEventListener("input", renderCards);
-    typeFilter.addEventListener("change", renderCards);
-    categoryFilter.addEventListener("change", renderCards);
-
-    loadResources();
-  </script>
+  }
+</script>
 </body>
 </html>
