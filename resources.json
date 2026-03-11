@@ -1,28 +1,28 @@
 {
   "items": [
     {
-      "title": "Sample report",
-      "description": "This is a sample document entry.",
+      "title": "UN Human Rights Report 2026",
+      "description": "Official report documenting human rights violations in Iran.",
       "type": "document",
       "category": "reports",
-      "file": "uploads/sample-report.pdf",
-      "thumbnail": ""
+      "file": "uploads/documents/un-report-2026.pdf",
+      "thumbnail": "uploads/images/un-report-2026-thumb.jpg"
     },
     {
-      "title": "Sample video",
-      "description": "This is a sample video entry.",
+      "title": "Tehran protest footage",
+      "description": "Video showing demonstrations and public resistance in Tehran.",
       "type": "video",
       "category": "protests",
-      "file": "uploads/sample-video.mp4",
-      "thumbnail": ""
+      "file": "uploads/videos/tehran-protest-2026.mp4",
+      "thumbnail": "uploads/images/tehran-protest-2026-thumb.jpg"
     },
     {
-      "title": "Sample image",
-      "description": "This is a sample image entry.",
+      "title": "Demonstration photo evidence",
+      "description": "Photo documenting protest activity and public participation.",
       "type": "image",
-      "category": "evidence",
-      "file": "uploads/sample-image.jpg",
-      "thumbnail": "uploads/sample-image.jpg"
+      "category": "protests",
+      "file": "uploads/images/tehran-protest-2026.jpg",
+      "thumbnail": "uploads/images/tehran-protest-2026.jpg"
     }
   ]
 }
