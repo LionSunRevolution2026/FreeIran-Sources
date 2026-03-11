@@ -1,1 +1,28 @@
-
+{
+  "items": [
+    {
+      "title": "Sample report",
+      "description": "This is a sample document entry.",
+      "type": "document",
+      "category": "reports",
+      "file": "uploads/sample-report.pdf",
+      "thumbnail": ""
+    },
+    {
+      "title": "Sample video",
+      "description": "This is a sample video entry.",
+      "type": "video",
+      "category": "protests",
+      "file": "uploads/sample-video.mp4",
+      "thumbnail": ""
+    },
+    {
+      "title": "Sample image",
+      "description": "This is a sample image entry.",
+      "type": "image",
+      "category": "evidence",
+      "file": "uploads/sample-image.jpg",
+      "thumbnail": "uploads/sample-image.jpg"
+    }
+  ]
+}
