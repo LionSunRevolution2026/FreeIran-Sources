@@ -6,12 +6,54 @@ media_folder: "uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "documents"
-    label: "Documents"
-    folder: "documents"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "File", name: "file", widget: "file" }
+  - name: "resources"
+    label: "Resources"
+    files:
+      - label: "Resource Library"
+        name: "resource_library"
+        file: "resources.json"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+
+              - label: "Description"
+                name: "description"
+                widget: "text"
+
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options:
+                  - document
+                  - video
+                  - image
+
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - reports
+                  - testimonies
+                  - legal
+                  - protests
+                  - repression
+                  - speeches
+                  - victims
+                  - evidence
+                  - statistics
+                  - timelines
+
+              - label: "File"
+                name: "file"
+                widget: "file"
+
+              - label: "Thumbnail"
+                name: "thumbnail"
+                widget: "image"
+                required: false
