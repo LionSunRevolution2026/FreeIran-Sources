@@ -1,82 +1,17 @@
 backend:
   name: git-gateway
   branch: main
-  
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
 collections:
   - name: "documents"
     label: "Documents"
-    media_folder: "documents"
-    public_folder: "/documents"
-    files:
-      - label: "Documents Library"
-        name: "documents_library"
-        file: "data/documents.json"
-        fields:
-          - label: "Items"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - label: "Category"
-                name: "category"
-                widget: "select"
-                options:
-                  - reports
-                  - testimonies
-                  - legal
-              - { label: "File", name: "file", widget: "file" }
-              - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
-
-  - name: "videos"
-    label: "Videos"
-    media_folder: "videos"
-    public_folder: "/videos"
-    files:
-      - label: "Videos Library"
-        name: "videos_library"
-        file: "data/videos.json"
-        fields:
-          - label: "Items"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - label: "Category"
-                name: "category"
-                widget: "select"
-                options:
-                  - protests
-                  - repression
-                  - speeches
-              - { label: "File", name: "file", widget: "file" }
-              - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
-
-  - name: "images"
-    label: "Images"
-    media_folder: "images"
-    public_folder: "/images"
-    files:
-      - label: "Images Library"
-        name: "images_library"
-        file: "data/images.json"
-        fields:
-          - label: "Items"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - label: "Category"
-                name: "category"
-                widget: "select"
-                options:
-                  - protests
-                  - victims
-                  - evidence
-              - { label: "File", name: "file", widget: "image" }
-              - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+    folder: "documents"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "File", name: "file", widget: "file" }
